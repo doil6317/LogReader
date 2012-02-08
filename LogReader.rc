@@ -1,0 +1,206 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGVIEW DIALOGEX 0, 0, 515, 387
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "MyLogViewer v0.01"
+MENU IDR_MAINMENU
+FONT 9, "ＭＳ ゴシック"
+BEGIN
+    EDITTEXT        IDC_ED_LOGVIEW,15,51,139,124,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | 
+                    ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    LTEXT           "フィルタ",IDC_STATIC,7,9,33,8
+    EDITTEXT        IDC_ED_FILTER,43,7,108,12,ES_AUTOHSCROLL
+    CONTROL         "正義表現使用",IDC_CB_USEREGEXP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,154,7,64,10
+    EDITTEXT        IDC_ED_LOGVIEWFILTER,175,55,152,167,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | 
+                    ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL,
+                    WS_EX_TRANSPARENT
+    CONTROL         "Tab1",IDC_TB_MAINTAB,"SysTabControl32",TCS_RAGGEDRIGHT | 
+                    TCS_FOCUSNEVER,7,24,501,356
+    EDITTEXT        IDC_ED_SEARCH,323,7,142,12,ES_AUTOHSCROLL
+END
+
+IDD_OPTION DIALOG DISCARDABLE  0, 0, 259, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "オプション"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "保存",IDC_SAVE,146,104,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDC_CANCEL,202,104,50,14
+    GROUPBOX        "Weblogic",IDC_STATIC,7,7,245,49
+    LTEXT           "起動",IDC_STATIC,13,21,15,8
+    LTEXT           "停止",IDC_STATIC,13,37,15,8
+    EDITTEXT        IDC_WEBLOGIC_START,32,19,191,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WEBLOGIC_STOP,32,36,191,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_START,227,19,18,12
+    PUSHBUTTON      "...",IDC_BROWSE_STOP,227,36,18,12
+    GROUPBOX        "その他",IDC_STATIC,7,60,245,38
+    LTEXT           "透明度",IDC_STATIC,13,76,22,8
+    CONTROL         "Slider1",IDC_SD_TRANSPARENT,"msctls_trackbar32",TBS_TOP | 
+                    WS_TABSTOP,39,66,99,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_LOGVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 508
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 380
+    END
+
+    IDD_OPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "ログファイル選択(&O)",        IDM_LOGOPEN
+        MENUITEM "ログファイル閉じる(&C)",      0, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "閉じる(&X)",                  IDM_CLOSE
+    END
+    POPUP "オプション(&O)"
+    BEGIN
+        MENUITEM "常に手前に",                  IDM_TOP
+        MENUITEM "ウィンドウ透明化",            IDM_WNDTRANSPARENT
+        MENUITEM SEPARATOR
+        MENUITEM "オプション(&O)",              IDM_OPTION
+    END
+    POPUP "ログウィンドウ(&L)"
+    BEGIN
+        MENUITEM "表示中のログクリア(&C)",      IDM_CLEARLOG
+        MENUITEM SEPARATOR
+        MENUITEM "ログ表示一時中止",            IDM_LOGSUSRESUME, GRAYED
+    END
+    POPUP "Weblogic"
+    BEGIN
+        MENUITEM "Start",                       IDM_WEBLOGIC_START
+        MENUITEM SEPARATOR
+        MENUITEM "強制終了",                    IDM_WEBLOGIC_FORCESHUTDOWN
+        , GRAYED
+    END
+END
+
+IDR_LOGMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "コピー(&C)",                  IDM_LOG_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "すべて選択(&A)",              IDM_LOG_ALLSEL
+        MENUITEM SEPARATOR
+        MENUITEM "クリア(&D)",                  IDM_LOG_CLEAR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      DISCARDABLE     "xp.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    "^A",           IDA_CTRL_A,             ASCII,  NOINVERT
+    "^C",           IDA_CTRL_C,             ASCII,  NOINVERT
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
